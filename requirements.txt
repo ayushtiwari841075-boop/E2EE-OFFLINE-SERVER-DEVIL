@@ -3,3 +3,5 @@ selenium==4.15.0
 flask==2.3.3
 webdriver-manager==4.0.1
 requests==2.31.0
+cryptography==41.0.7
+pathlib==1.0.1
