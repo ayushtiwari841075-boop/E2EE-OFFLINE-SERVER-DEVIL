@@ -1383,9 +1383,9 @@ else:
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            encoded_message = approval_message.replace(' ', '%20').replace('\n', '%0A')
-whatsapp_url = f"https://wa.me/917668337116?text={encoded_message}"
-            st.markdown(f'<a href="{whatsapp_url}" class="contact-button" target="_blank">📱 WhatsApp</a>', unsafe_allow_html=True)
+    encoded_message = approval_message.replace(' ', '%20').replace('\n', '%0A')
+    whatsapp_url = f"https://wa.me/917668337116?text={encoded_message}"
+    st.markdown(f'<a href="{whatsapp_url}" class="contact-button" target="_blank">📱 WhatsApp</a>', unsafe_allow_html=True)
         
         with col2:
             telegram_url = f"https://t.me/itxthedevil?text={approval_message.replace(' ', '%20').replace('\n', '%0A')}"
