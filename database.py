@@ -68,6 +68,17 @@ def init_db():
         )
     ''')
     
+    # Create user logs table
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS user_logs (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER NOT NULL,
+            log_message TEXT NOT NULL,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (user_id) REFERENCES users (id)
+        )
+    ''')
+    
     # Add new columns if they don't exist
     new_columns = [
         ('users', 'approval_status', 'TEXT DEFAULT "pending"'),
@@ -387,6 +398,90 @@ def create_admin_notifications_table():
         print("Admin notifications table created successfully")
     except Exception as e:
         print(f"Error creating admin notifications table: {e}")
+
+# NEW FUNCTIONS FOR USER LOGS - YEH ADD KIYE HAIN JO MISSING THE
+def log_user_activity(user_id, log_message):
+    """Log user activity to database"""
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        cursor = conn.cursor()
+        
+        cursor.execute('''
+            INSERT INTO user_logs (user_id, log_message) 
+            VALUES (?, ?)
+        ''', (user_id, log_message))
+        
+        conn.commit()
+        conn.close()
+        return True
+        
+    except Exception as e:
+        print(f"Error logging user activity: {e}")
+        return False
+
+def get_user_logs(user_id, limit=20):
+    """Get user activity logs from database"""
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        cursor = conn.cursor()
+        
+        cursor.execute('''
+            SELECT log_message, timestamp 
+            FROM user_logs 
+            WHERE user_id = ? 
+            ORDER BY timestamp DESC 
+            LIMIT ?
+        ''', (user_id, limit))
+        
+        logs = cursor.fetchall()
+        conn.close()
+        
+        # Format: [log_message1, log_message2, ...]
+        return [log[0] for log in logs]
+        
+    except Exception as e:
+        print(f"Error getting user logs: {e}")
+        return []
+
+def get_active_automations():
+    """Get list of users with active automations"""
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        cursor = conn.cursor()
+        
+        cursor.execute('''
+            SELECT u.id, u.username 
+            FROM users u
+            JOIN user_configs uc ON u.id = uc.user_id
+            WHERE uc.automation_running = 1 AND u.approval_status = 'approved'
+        ''')
+        
+        users = cursor.fetchall()
+        conn.close()
+        return users
+        
+    except Exception as e:
+        print(f"Error getting active automations: {e}")
+        return []
+
+def log_admin_notification(user_id, message):
+    """Log admin notifications - YEH BHI ADD KIYA"""
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        cursor = conn.cursor()
+        
+        cursor.execute('''
+            INSERT INTO admin_notifications (user_id, message) 
+            VALUES (?, ?)
+        ''', (user_id, message))
+        
+        conn.commit()
+        conn.close()
+        return True
+        
+    except Exception as e:
+        print(f"Error logging admin notification: {e}")
+        return False
 
 # Lock system functions (if needed)
 def get_lock_config(user_id):
