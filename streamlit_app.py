@@ -1000,6 +1000,11 @@ if st.sidebar.checkbox("🔐 Admin Login"):
 if st.session_state.admin_logged_in:
     st.markdown("### 👑 Admin Approval Panel")
     
+    # LOGOUT BUTTON ADDED IN SIDEBAR - YEH MAIN FIX HAI
+    if st.sidebar.button("🚪 Logout from Admin", use_container_width=True):
+        st.session_state.admin_logged_in = False
+        st.rerun()
+    
     # Get all pending approvals
     pending_users = db.get_pending_approvals()
     
@@ -1167,10 +1172,6 @@ if st.session_state.admin_logged_in:
                 <strong>Real Name:</strong> {real_name}
             </div>
             """, unsafe_allow_html=True)
-    
-    if st.sidebar.button("Logout from Admin"):
-        st.session_state.admin_logged_in = False
-        st.rerun()
 
 elif not st.session_state.logged_in:
     tab1, tab2 = st.tabs(["🔐 Login", "✨ Sign Up"])
@@ -1386,6 +1387,7 @@ else:
         st.sidebar.markdown(f"**Status:** ✅ Approved")
         st.sidebar.markdown(f"**User ID:** {st.session_state.user_id}")
         
+        # USER PANEL LOGOUT BUTTON - YEH BHI HAI
         if st.sidebar.button("🚪 Logout", use_container_width=True):
             if st.session_state.automation_state.running:
                 stop_automation(st.session_state.user_id)
